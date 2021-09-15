@@ -39,9 +39,15 @@ var getJSONData = function(url){
         return result;
     });
 }
+function veamos(){ //recive el valor del login para que se muestre primero
+  if(sessionStorage.getItem('veamos') === null){
+    location.replace("login.html");
+  }
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-});
+  document.getElementById("elUsuario").innerHTML = sessionStorage.getItem('Alex');
+}); 

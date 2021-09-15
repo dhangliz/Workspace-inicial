@@ -39,23 +39,23 @@ function showCategoriesList(){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < currentCategoriesArray.length; i++){
-        let category = currentCategoriesArray[i];
+        let producto = currentCategoriesArray[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+        if (((minCount == undefined) || (minCount != undefined && parseInt(producto.productCount) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(producto.productCount) <= maxCount))){
 
             htmlContentToAppend += `
             <a href="category-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
-                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+                        <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ category.name +`</h4>
-                            <small class="text-muted">` + category.productCount + ` artículos</small>
+                            <h4 class="mb-1">`+ producto.name +`</h4>
+                            <small class="text-muted">` + producto.productCount + ` artículos</small>
                         </div>
-                        <p class="mb-1">` + category.description + `</p>
+                        <p class="mb-1">` + producto.description + `</p>
                     </div>
                 </div>
             </a>
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
         //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
+        //de categorys por categoría.
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 
@@ -134,3 +134,42 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+const buscador = document.getElementById("elBuscadoh");
+const resultado = document.getElementById("cat-list-container");
+
+const filtrar = ()=>{
+    //console.log(formulario.value);
+    resultado.innerHTML = '';
+    const texto = buscador.value.toLowerCase();
+
+    for (producto of currentCategoriesArray){
+        let nombre = producto.name.toLowerCase();
+        if(nombre.indexOf(texto) !== -1){
+            resultado.innerHTML += `
+            <a href="category-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src=" ${producto.imgSrc} " alt=" ${producto.description} " class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1"> ${producto.name} </h4>
+                            <small class="text-muted"> ${producto.productCount}  artículos</small>
+                        </div>
+                        <p class="mb-1">  ${producto.description}  </p>
+                    </div>
+                </div>
+            </a>
+            `
+        }
+    }
+    if(resultado.innerHTML === ''){
+        resultado.innerHTML += `
+        <p>No se encontraron resultados...</p>
+        `
+    }
+}
+buscador.addEventListener('keyup', filtrar);
+
+filtrar();
