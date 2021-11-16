@@ -21,8 +21,14 @@
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="elUsuario">El Usuario</a>
+        <div class="dropdown">
+          <button id="elUsuario" class="dropbtn">Dropdown</button>
+          <div class="dropdown-content">
+            <a href="cart.html">Mi Carrito</a>
+            <a href="my-profile.html">Mi Perfil</a>
+            <a href="login.html">Cerrar Sesión</a>
+          </div>
+        </div>
       </div>
     </nav>
     <div class="container">
@@ -69,10 +75,13 @@
           </div>
       </div>
   </div>
-    <div class="container p-5" id="pepe"> <!---Le agregue un ID llamado pepe y fui a products.js  -->
-      <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">  
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex" id="pepe"> <!---Le agregue un ID llamado pepe y fui a products.js  --> </div>
       </div>
     </div>
+  </div>  
     <footer class="text-muted bg-light">
       <div class="container">
         <p class="float-right">

@@ -16,28 +16,28 @@ var hideSpinner = function(){
 }
 
 var getJSONData = function(url){
-    var result = {};
-    showSpinner();
-    return fetch(url)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }else{
-        throw Error(response.statusText);
-      }
-    })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
-    })
-    .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
+  var result = {};
+  showSpinner();
+  return fetch(url)
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }else{
+      throw Error(response.statusText);
+    }
+  })
+  .then(function(response) {
+        result.status = 'ok';
+        result.data = response;
         hideSpinner();
         return result;
-    });
+  })
+  .catch(function(error) {
+      result.status = 'error';
+      result.data = error;
+      hideSpinner();
+      return result;
+  });
 }
 function veamos(){ //recive el valor del login para que se muestre primero
   if(sessionStorage.getItem('veamos') === null){

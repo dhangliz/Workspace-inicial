@@ -40,30 +40,67 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="elUsuario">El Usuario</a>
+      <div class="dropdown">
+        <button id="elUsuario" class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+          <a href="cart.html">Mi Carrito</a>
+          <a href="my-profile.html">Mi Perfil</a>
+          <a href="login.html">Cerrar Sesión</a>
+        </div>
+      </div>
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <form style="display:none" id="primerForm" class="float-right m-5">
+      <label id="nameML">Nombre</label><br>
+      <input type="text" maxlength="20" id="nameM" onblur="mensajeError('nameM','errorNameM')"><br>
+      <span id="errorNameM" style="color: red"></span>
+      <label id="subNameML">Apellido</label><br>
+      <input type="text" maxlength="20" id="subNameM" onblur="mensajeError('subNameM','errorSubNameM')"><br>
+      <span id="errorSubNameM" style="color: red"></span>
+      <label id="ageML">Edad</label><br>
+      <input type="text" maxlength="3"  id="ageM" onblur="mensajeError('ageM','errorAgeM')"><br>
+      <span id="errorAgeM" style="color: red;"></span>
+      <label id="mailML">E-mail</label><br>
+      <input type="text"  id="mailM" onblur="mensajeError('mailM','errorMailM')"><br>
+      <span id="errorMailM" style="color: red"></span>
+      <label id="telML">Telefono de contacto</label><br>
+      <input type="text"  id="telM" onblur="mensajeError('telM','errorTelM')"><br>
+      <span id="errorTelM" style="color: red;"></span>
+      <button class="m-2" type="submit" onclick="guardar();" id="guardaBoton">Guardar</button>
+    </form>
+    <form id="segundoForm" class="float-left m-5">
+      <p id="name">Nombre: </p><br>
+      <p id="subName">Apellido: </p><br>
+      <p id="age">Edad: </p><br>
+      <p id="mail">E-mail: </p><br>
+      <p id="tel">Telefono de contacto: </p><br>
+      <button class="m-2" type="button" onclick="modificar();" id="mod">Modificar</button>
+    </form>
+  </div>
+  <div class="container">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#laWea">Veamos</button>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="laWea" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">El titulasio</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>El modal loco</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerremos</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

@@ -1,4 +1,4 @@
-function aVer(id,idmen) {
+function mensajeError(id,idmen) {
     var campos = document.getElementById(id);
     var error = document.getElementById(idmen);
     if(campos.value == ''){

@@ -20,9 +20,9 @@
                 <form class="box">
                     <h1>Login</h1>
                     <p class="text-muted"> Please enter your login and password!</p> 
-                    <input type="text" placeholder="Username" id="nombre" onblur="aVer('nombre','errorNombre');"> <!--agregada la funcion para que aparezca mensaje de error-->
+                    <input type="text" placeholder="Username" id="nombre" onblur="mensajeError('nombre','errorNombre');"> <!--agregada la funcion para que aparezca mensaje de error-->
                     <span id="errorNombre" style="color:red"></span> 
-                    <input type="password" placeholder="Password" id="password" onblur="aVer('password','errorContra');"> <!--agregada la funcion para que aparezca mensaje de error-->
+                    <input type="password" placeholder="Password" id="password" onblur="mensajeError('password','errorContra');"> <!--agregada la funcion para que aparezca mensaje de error-->
                     <span id="errorContra" style="color:red"></span> 
                     <a class="forgot text-muted" href="#">Forgot password?</a> 
                     <input type="button" name="" value="Login" onclick="redireccion();"> <!--Agrego la funcion declarada en el login al click-->

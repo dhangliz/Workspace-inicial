@@ -32,30 +32,22 @@ function sortCategories(veamos, array){ //ordena los elementos de un array
 return result;
 }
 
-function showCategoriesList(){
+function showProducts(){
     let htmlContentToAppend = "";
     for(let i = 0; i < productsArray.length; i++){
         let category = productsArray[i];
         if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
         ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
         htmlContentToAppend += `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
-                    <p> ` + category.cost + category.currency + ` </p>
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ category.name +`</h4>
-                        <small class="text-muted">` + category.soldCount + ` artículos</small>
-                    </div>
-                    <p> ` + category.description + ` </p>
-                </div>
-            </div>
+        <div class="col">
+            <a href="product-info.html" class="list-group-item list-group-item-action ml-3">
+            <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+            <p> ` + category.cost + category.currency + ` </p>
+            <h4 class="mb-1">`+ category.name +`</h4>
+            <small class="text-muted">` + category.soldCount + ` artículos</small>
+            <p> ` + category.description + ` </p>
+            </a>
         </div>
-        </a>
         ` // le agrege el cost y el currency debajo de la imagen para que se muestre ahi mismo, y le cambie en el small el nombre que habia por soldCount
 
         document.getElementById("pepe").innerHTML = htmlContentToAppend; //le cambie el id por pepe para que funcione el div con el mismo id
@@ -68,7 +60,7 @@ function ordenarYMostrarProductos(ordenarVeamos, categorieArray){
         productsArray = categorieArray;
     }
     productsArray = sortCategories(actualOrdenado, productsArray);
-    showCategoriesList();
+    showProducts();
 }
 
 
@@ -102,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         minCount = undefined;
         maxCount = undefined;
 
-        showCategoriesList();
+        showProducts();
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
@@ -125,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             maxCount = undefined;
         }
 
-        showCategoriesList();
+        showProducts();
     });
 });
 const buscador = document.getElementById("elBuscadoh");

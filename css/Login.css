@@ -1,144 +1,74 @@
-.jumbotron, .card-body, .container, .site-header{
-    font-family: 'Raleway', serif !important;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to right, #b92b27, #1565c0);
 }
 
-.jumbotron .display-4{
-    font-weight: bold;
+.card {
+  margin-right: 40%;
+  margin-bottom: 20px;
+  border: none;
 }
 
-.jumbotron {
-  height: 50vh;
-  padding: 5em inherit;
-  margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: black;
-  font-weight: bold;
-}
-
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-}
-
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
-
-.jumbotron-heading {
-  font-weight: 300;
-}
-
-.jumbotron .container {
-  max-width: 40rem;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  text-shadow: 1px 1px 2px grey;
-}
-
-.jumbotron .lead{
-  font-size: 38px;
-}
-
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: .25rem;
-}
-
-.site-header a {
-  color: white;
-  transition: ease-in-out color .15s;
-}
-
-.light-text {
-  color: white;
-}
-
-.site-header .dropdown-menu a {
-  color: black;
-}
-
-.dropzone{
-  border: 2px dashed #0087F7;
-  border-radius: 5px;
-  background: white;
-}
-
-.alert{
-  position: fixed;
-  top:80px;
-  width: 50%;
+.box {
+  width: 500px;
+  padding: 40px;
+  position:relative;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, 0);
+  background: #191919;
+  text-align: center;
+  transition: 0.25s;
+  margin-top: 100px;
 }
 
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
-  top:50%;
-  left: 50%;
-}
-.lds-ring div {
-  box-sizing: border-box;
+.box input[type="text"],
+.box input[type="password"] {
+  border: 0;
+  background: none;
   display: block;
-  position: absolute;
-  width: 51px;
-  height: 51px;
-  margin: 6px;
-  border: 6px solid #fff;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 10px 10px;
+  width: 250px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
 }
 
-#spinner-wrapper{
-  position: fixed;
-  background-color: rgba(0,0,0,0.5);
-  width:100%;
-  height: 100%;
-  top:0;
-  left:0;
-  z-index: 1021;
-  display: none;
+.box h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
-a.custom-card,
-a.custom-card:hover {
-  color: inherit;
-  text-decoration: inherit;
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+  width: 300px;
 }
 
-.checked {
-  color: orange;
+.box input[type="button"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
 }
-.error{
-  border: 1px solid red;
+
+.box input[type="submit"]:hover {
+  background: #2ecc71;
+}
+
+.forgot {
+  text-decoration: underline;
 }
